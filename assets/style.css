@@ -188,3 +188,28 @@ html { scroll-behavior: auto !important; scroll-padding-top: 110px; }
   html { scroll-padding-top: 86px; }
   #top, #about, #expertise, #projects, #publications, #contact, #highlights { scroll-margin-top: 86px; }
 }
+
+
+/* Curated career achievements section · 2026-11-07 */
+.selected-highlights { padding: 30px 0 45px; scroll-margin-top: 100px; }
+.selected-highlights-heading { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:22px; }
+.selected-highlights-heading h3 { font-family:'Kanit',var(--font-th); font-size:clamp(26px,3.3vw,37px); font-weight:500; line-height:1.5; margin:5px 0; }
+.selected-highlights-heading p { width:min(380px,100%); font-size:15px; line-height:1.8; color:var(--muted); margin:0; }
+.selected-highlights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.selected-card { display:flex; flex-direction:column; gap:10px; min-width:0; border-radius:14px; background:var(--paper); border:1px solid var(--line); padding:26px 28px; text-decoration:none; transition:transform .2s,border-color .2s,box-shadow .2s; }
+.selected-card:hover { transform:translateY(-3px); border-color:var(--teal); box-shadow:0 12px 30px #06223616; }
+.selected-card:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+.selected-category { color:var(--teal); font:700 12px/1.6 var(--font-en); letter-spacing:.045em; }
+.selected-card strong { font-family:'Kanit',var(--font-th); font-weight:500; color:var(--text); font-size:clamp(19px,2vw,23px); line-height:1.6; }
+.selected-card > span:nth-of-type(2) { font-family:var(--font-th); color:var(--muted); font-size:15px; line-height:1.85; }
+.selected-card em { font-style:normal; font-size:14px; color:var(--teal); font-weight:600; margin-top:auto; padding-top:8px; }
+.selected-more { margin:21px 0 5px; text-align:right; font-size:15px; font-weight:600; }
+.selected-more a { color:var(--teal); text-decoration:underline; text-underline-offset:4px; }
+@media(max-width:760px) {
+ .selected-highlights { padding:18px 0 33px; }
+ .selected-highlights-heading { display:block; }
+ .selected-highlights-heading p { margin-top:13px; width:100%; }
+ .selected-highlights-grid { grid-template-columns:1fr; gap:12px; }
+ .selected-card { padding:21px; }
+ .selected-more { text-align:left; }
+}
