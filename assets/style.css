@@ -132,3 +132,42 @@ html[lang="en"] .hero h1.en-name { font-size: clamp(49px, 5.5vw, 83px); letter-s
 .evidence-card p {font-size:16px;line-height:1.85;color:var(--muted);margin:0;}
 @media(max-width:870px) {.hero-art-photo{min-height:410px;}.hero-photo-frame{height:355px;width:min(275px,85%);} .portrait-corner{display:none;} }
 @media(max-width:650px) {.hero-art-photo{height:330px;min-height:330px;overflow:hidden;margin-bottom:22px;} .hero-photo-frame{height:310px;width:225px;} .evidence-gallery{margin-top:38px;} .evidence-gallery-header{display:block;} .evidence-gallery-header p{margin-top:12px;font-size:14px;} .evidence-grid{grid-template-columns:1fr;gap:17px;} .evidence-image{min-height:180px;aspect-ratio:1.68;} .evidence-card-body{padding:20px;} .evidence-card h4{font-size:20px;} .evidence-card p{font-size:15px;} .hero-photo-frame figcaption{font-size:10px;} }
+
+
+/* Portrait framing and no-crop correction · 2026-11-07 v3 */
+.hero-art.hero-art-photo {
+  min-width: 0;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-art-photo .hero-photo-frame {
+  flex: none;
+  width: min(336px, 80%);
+  height: auto;
+  aspect-ratio: 2 / 3;
+  max-height: 510px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 46% 46% 20px 20px;
+  background: #1664a0;
+  position: relative;
+  border: 2px solid #d8e6e0a6;
+  box-shadow: 0 25px 65px #020d1e85, 0 0 0 7px #ffffff0c;
+}
+.hero-art-photo .hero-photo-frame > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  background: #1664a0;
+}
+@media (max-width: 870px) {
+  .hero-art-photo .hero-photo-frame { width: min(265px, 83%); max-height: 400px; }
+}
+@media (max-width: 650px) {
+  .hero-art.hero-art-photo { min-height: 330px; height: auto; overflow: visible; }
+  .hero-art-photo .hero-photo-frame { width: min(215px, 78%); max-height: 330px; }
+}
