@@ -146,7 +146,7 @@ html[lang="en"] .hero h1.en-name { font-size: clamp(49px, 5.5vw, 83px); letter-s
   flex: none;
   width: min(336px, 80%);
   height: auto;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 5;
   max-height: 510px;
   margin: 0;
   overflow: hidden;
