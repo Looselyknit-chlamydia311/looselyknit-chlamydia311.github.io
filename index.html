@@ -24,7 +24,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=20261107-readability">
+  <link rel="stylesheet" href="assets/style.css?v=20261107-portrait-full-3">
+  <style id="portrait-fix">
+/* Ensure the portrait stays fully visible even when an older stylesheet is cached */
+.hero-art.hero-art-photo{display:flex;align-items:center;justify-content:center;overflow:visible;min-width:0}
+.hero-art-photo .hero-photo-frame{position:relative;display:block;flex:none;margin:0;width:min(336px,80%);height:auto;aspect-ratio:2/3;max-height:510px;overflow:hidden;border-radius:46% 46% 20px 20px;background:#1664a0;border:2px solid #d8e6e0a6;box-shadow:0 25px 65px #020d1e85,0 0 0 7px #ffffff0c}
+.hero-art-photo .hero-photo-frame>img{display:block;width:100%;height:100%;object-fit:contain;object-position:center top;background:#1664a0}
+@media(max-width:870px){.hero-art-photo .hero-photo-frame{width:min(265px,83%);max-height:400px}}
+@media(max-width:650px){.hero-art.hero-art-photo{height:auto;min-height:330px;overflow:visible}.hero-art-photo .hero-photo-frame{width:min(215px,78%);max-height:330px}}
+</style>
   <title>นายธีระวัฒน์ ทุ่งคำ | Theerawat Thungkham — นักการศึกษาและนักพัฒนานวัตกรรม</title>
   <script type="application/ld+json">
   {
