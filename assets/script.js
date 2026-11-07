@@ -38,7 +38,7 @@
     });
   }
   function jumpToSection(hash, updateUrl = true) {
-    if (!/^#[A-Za-z][\\w-]*$/.test(hash)) return false;
+    if (!/^#[A-Za-z][A-Za-z0-9_-]*$/.test(hash)) return false;
     const target = document.getElementById(hash.slice(1));
     if (!target) return false;
     closeMenu();
