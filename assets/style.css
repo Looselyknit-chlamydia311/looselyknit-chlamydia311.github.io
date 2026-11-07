@@ -17,3 +17,91 @@ html[lang=en] .hero h1.en-name{font-family:var(--font-en);font-size:clamp(53px,6
 @media(max-width:870px){.desktop-nav{display:none}.menu-toggle{display:grid}.mobile-nav{display:flex;flex-direction:column;gap:0;padding:10px 30px 19px;background:var(--surface);border-top:1px solid var(--line)}.mobile-nav a{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}.hero-layout{grid-template-columns:1fr 1fr;min-height:540px}.hero h1{font-size:clamp(45px,6.8vw,64px)}.hero-copy{padding:40px 0}.hero-desc{font-size:14px}.hero-footnote{margin-top:30px}.hero-art{height:435px}.monogram{transform:scale(.78)}.floating-label{font-size:7px}.about-quote{padding:28px;min-height:350px}.about-quote blockquote{font-size:19px}.expertise-card{padding:20px}.expertise-card h3{font-size:19px}.contact-art{display:none}.contact-layout{grid-template-columns:1fr}.intro-strip-inner{grid-template-columns:repeat(2,1fr);gap:17px}.intro-strip-inner>div:nth-child(2){border:0}.intro-strip-inner>div:nth-child(3){padding-left:0}}
 @media(max-width:650px){.container{width:calc(100% - 36px)}.ribbon-end,.ribbon-divider{display:none}.ribbon-content{gap:10px;font-size:8px;letter-spacing:1.2px}.header-inner{min-height:68px}.brand-symbol{width:37px;height:37px;font-size:23px}.brand-words strong{font-size:13px}.brand-words small{font-size:8px}.header-actions{gap:7px}.hero-layout{display:flex;flex-direction:column;align-items:stretch;min-height:0}.hero-copy{padding:48px 0 15px}.eyebrow{font-size:8px;letter-spacing:1.7px;margin-bottom:21px}.hero h1{font-size:clamp(48px,12vw,70px);letter-spacing:-2px}.hero-overline{font-size:12px}.hero-english{font-size:11px;letter-spacing:3px;margin:15px 0 20px}.hero-desc{font-size:13px}.hero-footnote{font-size:8px;letter-spacing:1px;margin-top:30px}.hero-art{height:267px;margin:0 0 16px}.monogram{transform:scale(.67)}.art-orbit{max-width:380px}.floating-label{font-size:7px;padding:7px}.hero-bottom-line{height:40px;font-size:8px}.button{font-size:12px;padding:10px 14px;gap:15px}.intro-strip-inner{padding:19px 0}.intro-strip-inner>div{font-size:9px;padding:0}.intro-strip small{display:none}.section{padding:65px 0 75px}.section-head{display:block;margin-bottom:28px}.section-head h2{font-size:32px}.section-head>p{font-size:12px;margin-top:12px}.about-grid{grid-template-columns:1fr;gap:23px}.about-quote{min-height:260px;padding:24px}.about-quote blockquote{font-size:18px}.about-details{font-size:13px}.info-list>div{grid-template-columns:100px 1fr;gap:10px}.info-list strong,.info-list span{font-size:11px}.expertise-grid,.project-grid{grid-template-columns:1fr;gap:14px}.expertise-card{min-height:250px}.expertise-card h3{font-size:21px}.project-graphic{height:205px}.project-body{padding:19px 21px}.project-body h3{font-size:21px}.project-body p{font-size:12px}.admin-illustration span{width:39px;height:49px}.publication-item{grid-template-columns:56px 1fr 15px;gap:8px;padding:22px 0}.publication-year{font-size:12px}.publication-type{font-size:8px}.publication-item h3{font-size:14px}.publication-item p{font-size:11px}.publication-arrow{font-size:16px}.contact-section{padding:60px 0}.contact-layout h2{font-size:29px}.contact-layout p{font-size:13px}.footer-inner{flex-wrap:wrap;gap:10px}.footer-inner p{order:3;width:100%;font-size:10px;margin:0}.footer-note{text-align:left}html[lang=en] .hero h1.en-name{font-size:clamp(46px,11vw,67px);letter-spacing:-3px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* Readability refresh v2 — Thai & English typography, Nov 2026 */
+:root {
+  --font-th: 'Noto Sans Thai', Tahoma, sans-serif;
+  --font-en: 'DM Sans', 'Noto Sans Thai', Arial, sans-serif;
+  --text: #182a38;
+  --muted: #53616d;
+  --teal: #096d74;
+}
+:root[data-theme="dark"] {
+  --text: #f0f5f7;
+  --muted: #bdcbd2;
+  --teal: #70d8d0;
+}
+html { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font-th); font-size: 17px; font-weight: 400; line-height: 1.85; letter-spacing: 0; }
+html[lang="en"] body { font-family: var(--font-en); font-size: 17px; font-weight: 400; line-height: 1.78; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Kanit', var(--font-th); font-weight: 500; letter-spacing: normal; overflow-wrap: break-word; }
+html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3 { font-family: var(--font-en); }
+p, li, dd, blockquote { overflow-wrap: break-word; }
+.desktop-nav { font-size: 15px; font-weight: 500; }
+.mobile-nav a { font-size: 16px; line-height: 1.7; }
+.hero-overline { font-size: 15px; line-height: 1.8; }
+.hero h1 { font-size: clamp(50px, 5.7vw, 83px); line-height: 1.3; letter-spacing: 0; font-weight: 500; }
+.hero-desc { font-size: 17px; line-height: 1.9; color: #e0e9eb; max-width: 600px; }
+.hero-desc strong { font-weight: 600; }
+.hero-english { font-size: 14px; letter-spacing: 2px; line-height: 1.6; }
+.button { font-size: 15px; font-weight: 600; min-height: 48px; }
+.intro-strip small { font-family: var(--font-th); font-size: 12px; font-weight: 400; }
+.section-head h2 { font-family: 'Kanit', var(--font-th); font-size: clamp(33px, 3.6vw, 48px); line-height: 1.5; letter-spacing: 0; font-weight: 500; }
+.section-head > p { max-width: 365px; font-size: 16px; line-height: 1.85; }
+.about-quote blockquote { font-size: 23px; line-height: 1.85; font-weight: 400; }
+.about-details { font-size: 17px; line-height: 1.9; }
+.about-details strong { font-weight: 600; }
+.info-list span { font-size: 14px; }
+.info-list strong { font-size: 15px; font-weight: 600; }
+.expertise-card h3 { font-size: 23px; line-height: 1.55; font-weight: 500; }
+.expertise-card p { font-size: 16px; line-height: 1.85; }
+.project-body h3 { font-size: 23px; line-height: 1.6; font-weight: 500; }
+.project-body p { font-size: 16px; line-height: 1.85; }
+.project-label { font-size: 13px; line-height: 1.7; }
+.text-link { font-size: 15px; }
+.publication-item { grid-template-columns: 90px minmax(0, 1fr) 28px; gap: 20px; padding: 30px 8px; }
+.publication-year { font-size: 17px; }
+.publication-type { font-size: 12px; line-height: 1.55; letter-spacing: .05em; overflow-wrap: anywhere; }
+.publication-item h3 { font-size: 19px; font-weight: 500; line-height: 1.72; margin: 8px 0; }
+.publication-item p { font-size: 15px; line-height: 1.85; }
+.contact-layout h2 { font-size: clamp(33px, 3.5vw, 47px); line-height: 1.6; font-weight: 500; }
+.contact-layout p { font-size: 17px; line-height: 1.85; color: #e0e9eb; }
+.site-footer { font-family: var(--font-th); font-size: 13px; }
+.footer-inner p { font-size: 13px; line-height: 1.8; }
+.footer-note { font-size: 12px; line-height: 1.8; }
+a:focus-visible, button:focus-visible { outline: 3px solid #f0c46a; outline-offset: 3px; }
+html[lang="en"] .hero h1.en-name { font-size: clamp(49px, 5.5vw, 83px); letter-spacing: -1.5px; line-height: 1.13; }
+@media (max-width: 870px) {
+  .hero-desc { font-size: 16px; }
+  .about-quote blockquote { font-size: 21px; }
+  .expertise-card h3 { font-size: 22px; }
+}
+@media (max-width: 650px) {
+  body, html[lang="en"] body { font-size: 16px; line-height: 1.9; }
+  .hero h1 { font-size: clamp(40px, 10.5vw, 59px); line-height: 1.35; letter-spacing: 0; }
+  html[lang="en"] .hero h1.en-name { font-size: clamp(41px, 10.5vw, 62px); line-height: 1.13; letter-spacing: -1px; }
+  .hero-overline { font-size: 14px; }
+  .hero-desc { font-size: 16px; line-height: 1.9; }
+  .hero-english { font-size: 12px; letter-spacing: 1.5px; }
+  .button { font-size: 15px; min-height: 46px; }
+  .section-head h2 { font-size: clamp(30px, 8.3vw, 38px); line-height: 1.5; }
+  .section-head > p { font-size: 15px; }
+  .about-details { font-size: 16px; line-height: 1.95; }
+  .about-quote blockquote { font-size: 19px; line-height: 1.85; }
+  .info-list strong, .info-list span { font-size: 14px; }
+  .expertise-card h3, .project-body h3 { font-size: 21px; }
+  .expertise-card p, .project-body p { font-size: 15.5px; line-height: 1.85; }
+  .project-label { font-size: 13px; }
+  .publication-item { grid-template-columns: 1fr 18px; gap: 8px 12px; padding: 24px 0; }
+  .publication-year { grid-column: 1 / -1; font-size: 14px; }
+  .publication-item > div { min-width: 0; }
+  .publication-type { font-size: 11px; }
+  .publication-item h3 { font-size: 17px; line-height: 1.8; }
+  .publication-item p { font-size: 14px; line-height: 1.85; }
+  .publication-arrow { font-size: 20px; }
+  .contact-layout h2 { font-size: 30px; }
+  .contact-layout p { font-size: 16px; }
+  .footer-inner p { font-size: 12px; }
+  .footer-note { font-size: 12px; }
+}
