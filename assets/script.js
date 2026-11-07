@@ -46,11 +46,14 @@
     const headerHeight = siteHeader?.getBoundingClientRect().height || 0;
     const absoluteTop = target.getBoundingClientRect().top + window.scrollY;
     const top = hash === "#top" ? 0 : Math.max(0, absoluteTop - headerHeight - 18);
-    window.scrollTo({ top, behavior: "instant" });
+    window.scrollTo({ top, behavior: "auto" });
     if (updateUrl && window.location.hash !== hash) {
       try { window.history.pushState(null, "", hash); } catch (_) { window.location.hash = hash; }
     }
     activateLink(hash);
+    // Move keyboard and assistive-technology focus to the selected section.
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+    try { target.focus({ preventScroll: true }); } catch (_) { target.focus(); }
     return true;
   }
   sectionLinks.forEach(link => {
@@ -69,5 +72,44 @@
     if (window.location.hash) jumpToSection(window.location.hash, false);
     else jumpToSection("#top", false);
   });
+  // Lightweight client-side search across publication titles and descriptions.
+  const searchInput = document.getElementById("publication-query");
+  const searchClear = document.querySelector(".publication-clear");
+  const searchStatus = document.getElementById("publication-search-status");
+  const publicationItems = [...document.querySelectorAll("#publication-list > .publication-item")];
+  const isThai = root.lang === "th";
+  const normalize = value => String(value || "").normalize("NFKC").toLocaleLowerCase().trim();
+  function filterPublications() {
+    if (!searchInput || !publicationItems.length) return;
+    const query = normalize(searchInput.value);
+    let found = 0;
+    publicationItems.forEach(item => {
+      const visible = !query || normalize(item.textContent).includes(query);
+      item.hidden = !visible;
+      if (visible) found++;
+    });
+    if (searchStatus) {
+      searchStatus.textContent = query
+        ? (found ? (isThai ? "พบ " + found + " รายการ" : found + " matching item(s)") : (isThai ? "ไม่พบผลงานที่ตรงกับคำค้น ลองคำอื่นหรือกดล้างคำค้น" : "No matches. Try another term or clear the search."))
+        : (isThai ? "แสดงผลงาน " + publicationItems.length + " รายการ" : "Showing all " + publicationItems.length + " entries");
+    }
+  }
+  searchInput?.addEventListener("input", filterPublications);
+  searchClear?.addEventListener("click", () => {
+    if (!searchInput) return;
+    searchInput.value = "";
+    filterPublications();
+    searchInput.focus();
+  });
+  filterPublications();
+
+  // Short path back to the top, shown after reading further down the page.
+  const backToTop = document.querySelector(".floating-top");
+  function updateBackToTop() {
+    if (backToTop) backToTop.hidden = window.scrollY < 650;
+  }
+  window.addEventListener("scroll", updateBackToTop, { passive: true });
+  updateBackToTop();
+
   if (year) year.textContent = String(new Date().getFullYear());
 })();
