@@ -171,3 +171,20 @@ html[lang="en"] .hero h1.en-name { font-size: clamp(49px, 5.5vw, 83px); letter-s
   .hero-art.hero-art-photo { min-height: 330px; height: auto; overflow: visible; }
   .hero-art-photo .hero-photo-frame { width: min(215px, 78%); max-height: 330px; }
 }
+
+
+/* Immediate navigation to sections — 2026-11-07 */
+html { scroll-behavior: auto !important; scroll-padding-top: 110px; }
+#top, #about, #expertise, #projects, #publications, #contact, #highlights {
+  scroll-margin-top: 110px;
+}
+.desktop-nav a, .mobile-nav a { cursor: pointer; }
+.desktop-nav a:hover, .mobile-nav a:hover { color: var(--teal); }
+.desktop-nav a[aria-current="location"], .mobile-nav a[aria-current="location"] {
+  color: var(--teal);
+  font-weight: 700;
+}
+@media (max-width: 650px) {
+  html { scroll-padding-top: 86px; }
+  #top, #about, #expertise, #projects, #publications, #contact, #highlights { scroll-margin-top: 86px; }
+}
