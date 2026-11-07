@@ -1,6 +1,24 @@
 (() => {
   "use strict";
   const root = document.documentElement;
+  // Redirect previous one-page anchor bookmarks to their new dedicated pages.
+  const lastPath = window.location.pathname.split("/").pop();
+  const oldSectionMap = {
+    "#about": ["about", ""],
+    "#expertise": ["expertise", ""],
+    "#projects": ["projects", ""],
+    "#publications": ["publications", ""],
+    "#featured-achievements": ["publications", "#featured-achievements"],
+    "#highlights": ["publications", "#highlights"],
+    "#contact": ["contact", ""]
+  };
+  if ((lastPath === "" || lastPath === "index.html" || lastPath === "en.html") && oldSectionMap[window.location.hash]) {
+    const [page, fragment] = oldSectionMap[window.location.hash];
+    const target = (lastPath === "en.html" ? "en-" : "") + page + ".html" + fragment;
+    window.location.replace(target);
+    return;
+  }
+
   const themeButton = document.querySelector(".theme-toggle");
   const menuButton = document.querySelector(".menu-toggle");
   const mobileMenu = document.querySelector(".mobile-nav");
