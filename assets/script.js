@@ -129,5 +129,31 @@
   window.addEventListener("scroll", updateBackToTop, { passive: true });
   updateBackToTop();
 
+
+  // Warm only the destination the visitor is about to open.
+  const prefetchedPages = new Set();
+  function prefetchOnIntent(link) {
+    const rawHref = link?.getAttribute("href");
+    if (!rawHref || rawHref.startsWith("#") || rawHref.startsWith("http:") || rawHref.startsWith("https:")) return;
+    let pageUrl;
+    try {
+      pageUrl = new URL(rawHref, window.location.href);
+      if (pageUrl.origin !== window.location.origin || !/\.html$/.test(pageUrl.pathname)) return;
+    } catch (_) { return; }
+    const key = pageUrl.pathname;
+    if (prefetchedPages.has(key) || key === window.location.pathname) return;
+    prefetchedPages.add(key);
+    const hint = document.createElement("link");
+    hint.rel = "prefetch";
+    hint.href = pageUrl.pathname;
+    hint.as = "document";
+    document.head.appendChild(hint);
+  }
+  document.querySelectorAll(".desktop-nav a, .mobile-nav a, .quick-access-item, .hero-buttons a, .home-featured-card, .page-switcher a")
+    .forEach(link => {
+      link.addEventListener("pointerenter", () => prefetchOnIntent(link), { once: true, passive: true });
+      link.addEventListener("focus", () => prefetchOnIntent(link), { once: true });
+    });
+
   if (year) year.textContent = String(new Date().getFullYear());
 })();
