@@ -105,3 +105,30 @@ html[lang="en"] .hero h1.en-name { font-size: clamp(49px, 5.5vw, 83px); letter-s
   .footer-inner p { font-size: 12px; }
   .footer-note { font-size: 12px; }
 }
+
+
+/* Portrait and authentic documentary image gallery · 2026-11-07 */
+.hero-art-photo { position:relative; isolation:isolate; min-height:500px; display:flex; justify-content:center; align-items:center; overflow:visible; }
+.portrait-halo { position:absolute; width:min(94%,480px); aspect-ratio:1; border:1px solid #82c5c061; border-radius:50%; box-shadow:0 0 0 38px #81c9ba09,0 0 0 78px #81c9ba08; background:radial-gradient(circle at 50% 50%,#136a7291 0%,transparent 66%); z-index:-1; }
+.hero-photo-frame { margin:0; position:relative; width:min(340px,81%); height:450px; overflow:hidden; border-radius:170px 170px 22px 22px; background:#1a578a; border:2px solid #d8e6e0a6; box-shadow:0 25px 65px #020d1e85,0 0 0 7px #ffffff0c; }
+.hero-photo-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 22%; }
+.hero-photo-frame figcaption { position:absolute; left:0; right:0; bottom:0; text-align:center; background:linear-gradient(0deg,#091d31f3,#091d31bf 72%,transparent); color:#fff; padding:30px 10px 15px; font:700 12px/1.55 var(--font-en); letter-spacing:.06em; }
+.hero-photo-frame figcaption span {display:block;color:#bcead7;font-size:10px;letter-spacing:.12em;font-weight:600;}
+.portrait-corner { position:absolute; bottom:24px; right:6px; color:#bedad8; letter-spacing:.1em; font:600 11px var(--font-en); }
+.evidence-gallery { margin:58px 0 0; }
+.evidence-gallery-header { display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:24px; }
+.evidence-gallery-header h3 {font-family:'Kanit',var(--font-th);font-size:clamp(26px,3vw,34px);font-weight:500;line-height:1.4;margin:4px 0;}
+.evidence-gallery-header p {max-width:370px;color:var(--muted);font-size:15px;line-height:1.75;margin:0;}
+.evidence-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px;}
+.evidence-card {min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:15px;overflow:hidden;}
+.evidence-image {min-height:225px;height:auto;aspect-ratio:1.68;background:#0e2645;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.evidence-image img {width:100%;height:100%;object-fit:contain;display:block;}
+.evidence-image span {position:absolute;right:12px;bottom:12px;padding:8px 13px;background:#0a223bde;color:white;border:1px solid #ffffff70;border-radius:7px;font-size:12px;}
+.evidence-image:hover img {transform:scale(1.018);}
+.evidence-image img {transition:transform .22s ease;}
+.evidence-card-body {padding:22px 24px 26px;}
+.evidence-kicker {font:700 11px/1.5 var(--font-en);letter-spacing:.035em;color:var(--teal);}
+.evidence-card h4 {font-family:'Kanit',var(--font-th);font-size:21px;font-weight:500;line-height:1.55;margin:10px 0;}
+.evidence-card p {font-size:16px;line-height:1.85;color:var(--muted);margin:0;}
+@media(max-width:870px) {.hero-art-photo{min-height:410px;}.hero-photo-frame{height:355px;width:min(275px,85%);} .portrait-corner{display:none;} }
+@media(max-width:650px) {.hero-art-photo{height:330px;min-height:330px;overflow:hidden;margin-bottom:22px;} .hero-photo-frame{height:310px;width:225px;} .evidence-gallery{margin-top:38px;} .evidence-gallery-header{display:block;} .evidence-gallery-header p{margin-top:12px;font-size:14px;} .evidence-grid{grid-template-columns:1fr;gap:17px;} .evidence-image{min-height:180px;aspect-ratio:1.68;} .evidence-card-body{padding:20px;} .evidence-card h4{font-size:20px;} .evidence-card p{font-size:15px;} .hero-photo-frame figcaption{font-size:10px;} }
